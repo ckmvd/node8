@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        
+    </style>
+<!-- <style>
+    *{margin: 0;padding: 0;}
+    #dv{width: 100px;height: 100px;background-color: #ff0000;position: absolute}
+</style> -->
+</head>
+</body>
+<!-- <div id="dv"></div> -->
+
+<label for="">全选</label><input type="checkbox" id="allcheck"><br>
+<label for="">1</label><input type="checkbox"><br>
+<label for="">2</label><input type="checkbox"><br>
+<label for="">3</label><input type="checkbox"><br>
+<label for="">4</label><input type="checkbox"><br>
+<script>
+    var all=document.getElementById('allcheck');
+    var dl=document.getElementsByTagName('input')
+    for(var i=0;i<dl.length;i++){
+        dl[i].addEventListener('click',clickHandler)
+        
+        // console.log(dl[i])
+    }
+    function clickHandler(){
+        if(this==all){
+            for(var i=1;i<dl.length;i++){
+                dl[i].checked=all.checked;
+            }
+        return
+        }
+        var flag=true;
+        for(var i=1;i<dl.length;i++){
+           if(!dl[i].checked){
+            flag=false;
+           }
+        }
+        all.checked=flag;
+    }
+
+
+    var ary=[8,9];
+    Array.prototype._push=function(){
+        for(var i=0;i<arguments.length;i++){
+            this[this.length]=arguments[i]
+        }
+        // return this.length;
+    }   
+    ary._push(1,0,7,5)
+    console.log(ary)
+</script>
+<!-- <script>
+let dv,seep,flag;   
+init()
+function init(){
+    seep=0;
+    flag=true
+    dv=document.getElementById('dv');
+    setInterval(animate,20);
+    dv.addEventListener('click',clickHandler);
+}
+function animate(){
+    if(!flag){
+        seep+=1;
+        dv.style.left=seep+'px';
+    }
+}
+function clickHandler(){
+    flag=!flag
+}
+
+
+// var seep=0;
+// var flag=true;
+// var dv=document.getElementById('dv');
+// setInterval(function(){
+//     if(flag){
+//         seep+=2;
+//         dv.style.left=seep+'px';
+//     }
+// },20);
+// dv.onclick=function(){
+//     flag=!flag
+// }
+</script> -->
+</body>
+</html>
